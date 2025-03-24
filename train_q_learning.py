@@ -37,12 +37,13 @@ def update_Q(Q, s, a, r, s_next, alpha, gamma):
     m = max(Q[s_next])
     Q[s][a] += alpha*(r + gamma*m - Q[s][a])
 
+
 num_episodes = 150000
-alpha = 0.05
+alpha = 0.02
 gamma = 0.99
 epsilon = 1.0
 epsilon_min = 0.01
-epsilon_decay = 0.99997
+epsilon_decay = 0.99998
 
 Q_table = {}
 scores = []
