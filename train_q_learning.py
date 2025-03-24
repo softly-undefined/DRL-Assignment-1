@@ -37,8 +37,7 @@ gamma = 0.99
 epsilon = 1.0
 epsilon_min = 0.0000001
 epsilon_decay = 0.9999
-env_config = {"grid_size": 5, "fuel_limit": 5000}
-env = SimpleTaxiEnv(**env_config)
+
 Q_table = {}
 scores = []
 num_steps = []
@@ -47,6 +46,9 @@ successes = 0
 old_success = 0
 
 for episode in tqdm(range(num_episodes)):
+    grid_size = random.randint(5, 10)
+    env_config = {"grid_size": grid_size, "fuel_limit": 5000}
+    env = SimpleTaxiEnv(**env_config)
 
     start = time.time()
     obs, _ = env.reset()
